@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A tribute to Peter Henlein, the pioneering Nuremberg locksmith and clockmaker.">
+  <title>Peter Henlein | A Timeless Legacy</title>
+  <style>
+    :root {
+      --ink: #171511;
+      --deep: #211d17;
+      --gold: #c7a45b;
+      --cream: #f3ead8;
+      --muted: #b9ad98;
+      --paper: #fffaf0;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+    a { color: var(--gold); }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 7%;
+      border-bottom: 1px solid rgba(199,164,91,.28);
+      background: #12110e;
+    }
+    .brand {
+      color: var(--gold);
+      font-size: .9rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+    nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: .85rem;
+    }
+    nav a:hover { color: var(--gold); }
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background:
+        radial-gradient(circle at center, rgba(199,164,91,.15), transparent 48%),
+        linear-gradient(135deg, #292319, #11100d 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(199,164,91,.18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { width: 430px; height: 430px; }
+    .hero::after { width: 520px; height: 520px; }
+    .hero-content { position: relative; z-index: 1; max-width: 850px; }
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font:  .75rem Arial, sans-serif;
+    }
+    h1 {
+      margin: .5rem 0;
+      color: var(--cream);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: normal;
+      line-height: 1.05;
+    }
+    .subtitle {
+      color: var(--gold);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+    }
+    .hero p { color: var(--muted); max-width: 620px; margin: 1.5rem auto; }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .8rem 1.4rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font: .8rem Arial, sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: .2s ease;
+    }
+    .button:hover { background: var(--gold); color: var(--ink); }
+    main { max-width: 1050px; margin: auto; padding: 0 1.5rem; }
+    section { padding: 5rem 0; border-bottom: 1px solid rgba(199,164,91,.2); }
+    .section-label {
+      color: var(--gold);
+      font: .75rem Arial, sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: .3rem 0 1.5rem;
+      color: var(--cream);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: normal;
+      line-height: 1.15;
+    }
+    .intro { max-width: 760px; color: #d7cbb7; font-size: 1.12rem; }
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+    .fact-card {
+      padding: 1.5rem;
+      border: 1px solid rgba(199,164,91,.3);
+      background: rgba(255,255,255,.025);
+    }
+    .fact-card h3 { margin-top: 0; color: var(--gold); font-weight: normal; }
+    .fact-card p, .columns p { color: #d7cbb7; }
+    .timeline { list-style: none; padding: 0; margin: 2rem 0 0; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(199,164,91,.2);
+    }
+    .timeline time { color: var(--gold); font-weight: bold; }
+    .timeline p { margin: 0; color: #d7cbb7; }
+    blockquote {
+      margin: 2rem 0 0;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--gold);
+      color: var(--cream);
+      background: rgba(199,164,91,.07);
+      font-size: 1.35rem;
+      font-style: italic;
+    }
+    .note { color: var(--muted); font: .88rem/1.6 Arial, sans-serif; }
+    .sources li { margin: .7rem 0; color: #d7cbb7; }
+    .sources a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    footer {
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      background: #11100d;
+      font: .85rem Arial, sans-serif;
+    }
+    footer strong { color: var(--gold); font-family: Georgia, serif; font-weight: normal; }
+    @media (max-width: 700px) {
+      .topbar { flex-direction: column; }
+      .columns { grid-template-columns: 1fr; gap: 1.5rem; }
+      .timeline li { grid-template-columns: 75px 1fr; gap: 1rem; }
+      section { padding: 3.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">A tribute to craftsmanship</div>
+    <nav aria-label="Main navigation">
+      <a href="#biography">Biography</a>
+      <a href="#craft">His craft</a>
+      <a href="#legacy">Legacy</a>
+      <a href="#D"></a>
+      <!-- could not remove href D breaks code -->
+    </nav>
+  </header>
+<!-- very important -->
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <div class="eyebrow">Nuremberg, Germany · c. 1485–1542</div>
+      <h1 id="page-title">Peter Henlein</h1>
+      <div class="subtitle">A life measured in moments. A legacy that lasts through time.</div>
+      <p>
+        Honouring the locksmith and clockmaker whose skill helped make
+        timekeeping more personal, portable and remarkable.
+      </p>
+      <a class="button" href="#biography">Discover his story</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="biography">
+      <div class="section-label">01 · The man behind the mechanism</div>
+      <h2>A craftsman ahead of his time</h2>
+      <p class="intro">
+        Peter Henlein was a German locksmith and clockmaker from Nuremberg born in 1485,
+        He is credited for the invention of the pocket watch.
+        He was among the first craftsmen to make a small portable
+        spring driven watch,he also made a classic fire gilded pomanda shaped watch.
+        In his own way he curved a path for the modern watch market to make beautiful 
+        artpieces we love in our time.</p>
+
+        <p class="intro">
+          He brought forth the creation of the pocketwacth an invention tha massively helped 
+        the ship and long distance traders workers of the time, he brought fashion with the
+        pendant watch, making a time piece a symbol of fashion and style which we appreciate
+        to this day.   
+      </p>
+      <p class="intro">
+        His story is one of patience,precision and engineering that is to be celebrated and admired,
+        peter henlein is a man who understood that machines dont have to be dull or boring to perfom.
+        This is a man who worked with small intricate parts in watchmaking and saw the beauty in time
+        itself, what makes his story more interesting was the place where he learned clock making, he
+        requested for asylum after being involved in a brawl where a man lost his life and he spent His
+        days there making a device like no other.
+      </p>
+      <p class="intro"> 
+        He was known as the first craftsman to build clockworks into "Bisamköpfe", musk-balls or pomanders,
+        small pendant containers fashioned from precious metals for fragrances or disinfectants; these are now
+         known as pomander watches, In November 1509, he became a master in the city's locksmith guild.
+         He is mentioned in the city's records as the supplier of these small clocks, which were given as gifts
+        to important people.The earliest extant example of a watch, the Watch 1505, a fire-gilded pomander watch
+        dated 1505, has been attributed to Henlein.
+      </p>
+      <p class="intro">
+        In 1529, Henlein traveled to Strasbourg on behalf of the Nuremberg council, for a sky globe. Six years later,
+        he crafted a watch for the council of Nuremberg.He also built a tower clock for Lichtenau castle in 1541,
+        and was known as a builder of advanced astronomical instruments.</p>
+      <p class="intro">Henlein died in August 1542 and was buried at the Katharinenkirche, Nuremberg
+      </p>
+    </section>
+
+    <section id="craft">
+      <div class="section-label">02 · The art of keeping time</div>
+      <h2>Small clocks, big possibilities</h2>
+      <div class="columns">
+        <div>
+          <p>
+            Early portable clocks used a coiled metal mainspring instead of
+            the heavy hanging weights found in many larger clocks. This made
+            it possible to build smaller mechanisms that could be carried or
+            worn. Henlein was among the early makers associated with this
+            important development.
+          </p>
+          <p>
+            A contemporary account from the early 1510s praised a Nuremberg
+            maker named Peter Hele—generally identified with Peter Henlein—for
+            clocks that could be carried at the chest or in a purse and run
+            for around forty hours.
+          </p>
+        </div>
+        <aside class="fact-card">
+          <h3>The watchmaker's achievement</h3>
+          <p>
+            His importance lies in the craft of miniaturising mechanical
+            clockwork: making intricate gears and spring-powered mechanisms
+            work inside a much smaller object.
+          </p>
+          <p class="note">
+            Historical note: Henlein is often called the inventor of the
+            pocket watch, but portable timepieces existed before his career.
+            Historians therefore describe his role with care.
+          </p>
+        </aside>
+      </div>
+      <blockquote>
+        “Great craftsmanship turns complicated mechanisms into something
+        that feels simple—and makes every moment count.”
+      </blockquote>
+      <p class="note">Tribute reflection.</p>
+    </section>
+
+    <section id="legacy">
+      <div class="section-label">03 · A life in time</div>
+      <h2>His story and lasting influence</h2>
+      <ul class="timeline">
+        <li>
+          <time>c. 1485</time>
+          <p>Peter Henlein is believed to have been born in Nuremberg, in what is now Germany.</p>
+        </li>
+        <li>
+          <time>1509</time>
+          <p>He became a master locksmith in Nuremberg, confirming his standing as a skilled craftsperson.</p>
+        </li>
+        <li>
+          <time>1511–12</time>
+          <p>A published account describes small, spring-driven clocks made by Peter Hele that could be carried on the body.</p>
+        </li>
+        <li>
+          <time>1542</time>
+          <p>Henlein died in Nuremberg, leaving behind a reputation connected to the early history of portable clocks.</p>
+        </li>
+      </ul>
+      <div class="columns" style="margin-top:2.5rem">
+        <div>
+          <h3 style="color:var(--gold);font-weight:normal">Why I admire him</h3>
+          <p>
+            I admire Peter Henlein because his work represents curiosity,
+            patience and dedication to a craft. He worked in a time when
+            creating a tiny, reliable mechanism demanded extraordinary skill.
+            His example reminds us that progress often begins with someone
+            willing to improve the details.Borrowing on the existing and improving 
+            to create perfection.
+          </p>
+        </div>
+        <div>
+          <h3 style="color:var(--gold);font-weight:normal">A legacy that continues</h3>
+          <p>
+            Today, watches are part of everyday life, from traditional
+            mechanical pieces to modern smartwatches. The history of portable
+            timekeeping is much larger than one person, but Henlein remains
+            an important figure in its early story.
+          </p>
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <strong>Peter Henlein</strong> · A tribute to pure imagination and a craftsmanship.
+    <br><br>
+    Kevin kirimi kiruja corp
+  </footer>
+</body>
+</html>
